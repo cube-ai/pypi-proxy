@@ -1,0 +1,8 @@
+version: '2'
+services:
+    pypi-proxy:
+        image: pypi-proxy
+        ports:
+            - 7979:7979
+        volumes:
+            - ~/mypypi:/app/packages
