@@ -1,6 +1,6 @@
 # pypi-proxy
 
-Pypi本地源。当本地未找到时，从国内pypi镜像网站（目前使用阿里云pypi镜像）拉取并缓存于本地，下次再访问时直接从本地获取。
+Pypi本地代理。当本地未找到时，从国内pypi镜像网站（目前使用豆瓣pypi镜像）拉取并缓存于本地，下次再访问时直接从本地获取。
 
 ## docker镜像制作
 
@@ -17,5 +17,6 @@ Pypi本地源。当本地未找到时，从国内pypi镜像网站（目前使用
 
 假定pypi-proxy服务运行于域名/IP地址为<hostname>的主机的7979端口上，通过执行以下命令来安装<package>包：
 
-        pip3 install -i http://<hostname>:7979/pypi/simple/ --trusted-host <hostname>:7979 <package>
-
+        pip3 install -i http://<hostname>:7979/pypi/simple/ --trusted-host <hostname> <package-name>[==<版本号>] --timeout 1200
+        
+注：对于文件体积较大的包，建议在pip命令后面加上--timeout参数，将timeout设为一个比正常下载时间更大的值。
